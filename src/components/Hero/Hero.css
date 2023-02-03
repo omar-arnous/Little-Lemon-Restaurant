@@ -1,0 +1,69 @@
+.hero {
+  width: 100vw;
+  background-color: var(--color-green);
+}
+
+.hero-text {
+  grid-column: 3 / span 3;
+}
+
+.hero-text h1 {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.hero-text h2 {
+  margin: 0;
+  font-family: 'Markazi';
+  font-size: 2.5rem;
+  font-weight: var(--regular);
+  color: var(--color-white);
+}
+
+.hero-text p {
+  color: var(--color-white);
+  max-width: 25ch;
+}
+
+.hero-text button {
+  margin-bottom: 20px;
+}
+
+.hero img {
+  position: absolute;
+  grid-column: 7 / span 3;
+  width: 370px;
+  height: 430px;
+  margin-top: 20px;
+  border-radius: 16px;
+  right: calc((100vw - (5 * 20px)) / 6);
+}
+
+@media (max-width: 48rem) {
+  section .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .hero-text {
+    grid-column: 2 / 3;
+    grid-row: 1;
+  }
+
+  .hero img {
+    grid-column: 2 / 3;
+    grid-row: 2;
+    position: relative;
+  }
+}
+
+@media (max-width: 64rem) {
+  section .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .hero img {
+    right: 0;
+    position: relative;
+  }
+}
