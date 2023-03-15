@@ -84,6 +84,10 @@ button:hover {
   fill: var(--color-yellow);
 }
 
+form {
+  max-width: 200px;
+}
+
 @media screen and (max-width: 48rem) {
   html,
   body {

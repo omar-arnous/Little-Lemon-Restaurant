@@ -1,14 +1,20 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import Main from './pages/Main';
+import HomePage from './pages/HomePage';
+import BookingPage from './pages/BookingPage';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <Main />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
