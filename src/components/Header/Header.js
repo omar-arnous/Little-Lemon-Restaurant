@@ -9,7 +9,7 @@ const Header = () => {
       <header>
         <img src={logo} alt="logo" className="logo" />
         <Nav />
-        <a href="#side-drawer" class="menu-btn">
+        <a href="#side-drawer" className="menu-btn">
           <span></span>
           <span></span>
           <span></span>
@@ -17,7 +17,7 @@ const Header = () => {
       </header>
       <aside id="side-drawer">
         <header>
-          <a href="#" class="menu-btn">
+          <a href="#" className="menu-btn">
             <span></span>
             <span></span>
             <span></span>

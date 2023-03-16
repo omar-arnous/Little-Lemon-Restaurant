@@ -9,7 +9,12 @@ const Testimonials = () => {
       <h2>Testimonials</h2>
       <div className="testimonials-list">
         {data.map((item) => (
-          <Testimonial name={item.name} text={item.text} imgUrl={item.imgUrl} />
+          <Testimonial
+            key={item.id}
+            name={item.name}
+            text={item.text}
+            imgUrl={item.imgUrl}
+          />
         ))}
       </div>
     </section>

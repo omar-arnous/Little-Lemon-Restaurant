@@ -84,8 +84,34 @@ button:hover {
   fill: var(--color-yellow);
 }
 
+.grid-item {
+  grid-column: 4 / 8;
+}
+
 form {
-  max-width: 200px;
+  max-width: 300px;
+  margin: 1.25rem auto;
+  background: var(--color-white);
+  padding: 1.25rem;
+  display: grid;
+  gap: 20px;
+}
+
+label {
+  font-family: 'Markazi', sans-serif;
+}
+
+input,
+select {
+  outline: none;
+  border: 1px solid var(--color-yellow);
+  font-family: 'Markazi', sans-serif;
+  width: 150px;
+}
+
+form button {
+  grid-column: 1 / 12;
+  width: 100%;
 }
 
 @media screen and (max-width: 48rem) {
