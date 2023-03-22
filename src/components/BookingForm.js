@@ -1,8 +1,13 @@
 import { useState } from 'react';
+import { Link, redirect } from 'react-router-dom';
+
+import { submitAPI } from '../data/DataApi';
 
 const BookingForm = ({ availableTimes, updateTimes }) => {
   const [date, setDate] = useState(null);
-  const [time, setTime] = useState(null);
+  const [time, setTime] = useState(
+    availableTimes.map((times) => <option>{times}</option>)
+  );
   const [guests, setGuests] = useState(0);
   const [occasion, setOccasion] = useState('');
   const [fName, setFName] = useState('');
@@ -10,16 +15,21 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
   const [number, setNumber] = useState('');
 
   const handleDateChange = (e) => {
-    setDate(e.target.value);
+    const chosenDate = e.target.value;
+    setDate(chosenDate);
 
-    var chosenDate = e.target.value;
     const date = new Date(chosenDate);
+    updateTimes(date);
+    setTime(availableTimes.map((times) => <option>{times}</option>));
+  };
 
-    updateTimes();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    redirect('/confirm');
   };
 
   return (
-    <form>
+    <form method="POST" onSubmit={handleSubmit}>
       <div className="grid-item">
         <label htmlFor="f-name">First Name</label>
         <input
@@ -73,12 +83,10 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
         <label htmlFor="res-time">Choose time</label>
         <select
           id="res-time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
+          // value={time}
+          // onChange={(e) => setTime(e.target.value)}
         >
-          {availableTimes.map((time) => (
-            <option>{time}</option>
-          ))}
+          {time}
         </select>
       </div>
       <div className="grid-item">
@@ -104,7 +112,9 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
           <option>Anniversary</option>
         </select>
       </div>
-      <button>Make Your reservation</button>
+      <Link to="/confirm" className="btn">
+        Reserve
+      </Link>
     </form>
   );
 };

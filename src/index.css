@@ -59,6 +59,7 @@ p {
   color: var(--color-black);
 }
 
+.btn,
 button {
   font-family: 'Karla';
   font-weight: var(--medium);
@@ -74,6 +75,7 @@ button {
   transition: 0.5s;
 }
 
+.btn,
 button:hover {
   cursor: pointer;
   background-color: #ffd817;
@@ -109,9 +111,28 @@ select {
   width: 150px;
 }
 
-form button {
+form .btn {
   grid-column: 1 / 12;
-  width: 100%;
+  width: 230px;
+  text-align: center;
+}
+
+/* Confirmation Page */
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.confirmation a,
+.confirmation a:focus {
+  color: var(--color-black);
+  transition: all 0.2s;
+}
+
+.confirmation a:hover,
+.confirmation a:active {
+  color: var(--color-yellow);
 }
 
 @media screen and (max-width: 48rem) {

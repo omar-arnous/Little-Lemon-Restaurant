@@ -1,19 +1,16 @@
 import { useReducer } from 'react';
 
 import BookingForm from '../components/BookingForm';
+import { fetchAPI } from '../data/DataApi';
 
 const Booking = () => {
-  const updateTimes = () => {
-    return initializeTimes;
+  const updateTimes = (date) => {
+    return fetchAPI(date);
   };
 
-  const initializeTimes = () => {
-    return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-  };
+  const initializeTimes = fetchAPI(new Date());
 
-  const times = initializeTimes();
-
-  const [availableTimes, dispatch] = useReducer(updateTimes, times);
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
 
   return <BookingForm availableTimes={availableTimes} updateTimes={dispatch} />;
 };
